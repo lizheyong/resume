@@ -1,24 +1,27 @@
 :root {
-    --primary-color: #4A90E2;
+    --primary-color: #0071E3;
     /* Apple's classic blue */
-    --primary-color-rgb: 74, 144, 226;
-    --secondary-color: #2C5282;
+    --primary-color-rgb: 0, 113, 227;
+    --secondary-color: #1D1D1F;
     /* A complementary purple/indigo */
-    --secondary-color-rgb: 44, 82, 130;
-    --text-color: #2C3E50;
-    --text-color-light: #34495E;
-    --text-color-muted: #7F8C8D;
-    --bg-color-dark: #F5F6FA;
-    --card-bg-color: #FFFFFF;
-    --border-color: #E5E9F2;
+    --secondary-color-rgb: 29, 29, 31;
+    --text-color: #1D1D1F;
+    --text-color-light: #2C2C2E;
+    --text-color-muted: #86868B;
+    --bg-color-dark: #F5F5F7;
+    --card-bg-color: rgba(255, 255, 255, 0.8);
+    --border-color: rgba(0, 0, 0, 0.1);
     --font-primary: 'MingHui', 'Noto Serif SC', serif;
     --font-code: 'Roboto Mono', monospace;
     --max-width: 1000px;
-    --border-radius: 8px;
-    --transition-speed: 0.25s;
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --border-radius: 20px;
+    --transition-speed: 0.4s;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
 }
 
 * {
@@ -53,6 +56,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
+    opacity: 0.6;
 }
 
 .container {
@@ -108,6 +112,7 @@ p:last-child {
     color: var(--text-color-light);
     margin-bottom: 0.15em;
     letter-spacing: -0.03em;
+    animation: float 6s ease-in-out infinite;
 }
 
 #hero .name .last-name {
@@ -119,6 +124,8 @@ p:last-child {
     color: var(--text-color-muted);
     margin-bottom: 1.2em;
     font-weight: 400;
+    animation: float 6s ease-in-out infinite;
+    animation-delay: 0.2s;
 }
 
 #hero .contact-info {
@@ -142,7 +149,7 @@ p:last-child {
     display: inline-block;
     margin-top: 60px;
     color: var(--primary-color);
-    animation: bounce-subtle 2.5s infinite;
+    animation: float 3s ease-in-out infinite, glow 3s infinite;
     padding: 15px;
     background-color: rgba(var(--primary-color-rgb), 0.1);
     border-radius: 50%;
@@ -189,13 +196,14 @@ p:last-child {
 }
 
 .section-title {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     font-weight: 600;
     color: var(--text-color-light);
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     text-align: left;
     position: relative;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
+    letter-spacing: -0.02em;
 }
 
 .section-title::after {
@@ -206,7 +214,12 @@ p:last-child {
     width: 60px;
     height: 3px;
     background: var(--primary-color);
-    border-radius: 1.5px;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.section-title:hover::after {
+    width: 100px;
 }
 
 .content-wrapper {
@@ -242,39 +255,48 @@ p:last-child {
 }
 
 .skill-tag {
-    background-color: rgba(var(--primary-color-rgb), 0.1);
+    background-color: rgba(var(--primary-color-rgb), 0.08);
     color: var(--primary-color);
     padding: 8px 16px;
-    border-radius: var(--border-radius);
+    border-radius: 12px;
     font-size: 1rem;
     border: 1px solid transparent;
-    transition: all var(--transition-speed) ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: default;
+    transform-style: preserve-3d;
 }
 
 .skill-tag:hover {
-    background-color: rgba(var(--primary-color-rgb), 0.2);
-    transform: translateY(-2px);
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px) rotateX(5deg);
+    box-shadow: 0 4px 12px rgba(var(--primary-color-rgb), 0.2);
 }
 
 .skill-tag.main-skill {
     background-color: var(--primary-color);
-    color: #fff;
+    color: white;
     font-weight: 500;
+    box-shadow: 0 2px 8px rgba(var(--primary-color-rgb), 0.2);
 }
 
 .skill-tag.main-skill:hover {
-    background-color: lighten(var(--primary-color), 10%);
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px) rotateX(5deg);
+    box-shadow: 0 6px 16px rgba(var(--primary-color-rgb), 0.3);
 }
 
 .skill-tag.aux-skill {
-    background-color: rgba(var(--text-color-muted-rgb, 174, 174, 178), 0.1);
+    background-color: rgba(var(--secondary-color-rgb), 0.06);
     color: var(--text-color-muted);
 }
 
-/* Add --text-color-muted-rgb */
 .skill-tag.aux-skill:hover {
-    background-color: rgba(var(--text-color-muted-rgb, 174, 174, 178), 0.2);
+    background-color: var(--secondary-color);
+    color: white;
+    transform: translateY(-3px) rotateX(5deg);
+    box-shadow: 0 4px 12px rgba(var(--secondary-color-rgb), 0.2);
 }
 
 /* Education Section - Timeline Style */
@@ -294,8 +316,13 @@ p:last-child {
 }
 
 .timeline-item {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline-item:hover {
+    transform: translateX(10px);
 }
 
 .timeline-icon {
@@ -312,6 +339,7 @@ p:last-child {
     justify-content: center;
     color: var(--primary-color);
     overflow: hidden;
+    animation: glow 3s infinite;
 }
 
 .timeline-icon .company-icon {
@@ -326,10 +354,19 @@ p:last-child {
 }
 
 .timeline-content {
-    padding: 15px;
-    background-color: var(--card-bg-color);
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    padding: 25px;
     border-radius: var(--border-radius);
-    border: 1px solid var(--border-color);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline-content:hover {
+    transform: translateX(10px);
+    box-shadow: var(--glass-shadow), 0 0 20px rgba(var(--primary-color-rgb), 0.1);
 }
 
 .timeline-content h3 {
@@ -368,18 +405,20 @@ p:last-child {
 
 /* Experience Section - Card Style */
 .experience-list .card {
-    background-color: var(--card-bg-color);
-    padding: 30px;
-    margin-bottom: 25px;
-    border-radius: var(--border-radius);
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
-    transition: all var(--transition-speed) ease;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    transform-style: preserve-3d;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 40px;
+    padding: 35px;
 }
 
 .experience-list .card:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
+    transform: translateY(-8px) rotateX(2deg);
+    box-shadow: var(--glass-shadow), 0 0 30px rgba(var(--primary-color-rgb), 0.15);
 }
 
 .experience-item header {
@@ -576,7 +615,8 @@ footer p {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .section-title {
-        font-size: 1.8rem;
+        font-size: 2rem;
+        margin-bottom: 30px;
     }
 
     .timeline {
@@ -601,26 +641,65 @@ footer p {
     #hero .tagline {
         font-size: 1rem;
     }
+
+    .experience-list .card {
+        padding: 25px;
+        margin-bottom: 30px;
+    }
+    
+    .timeline-item:hover {
+        transform: translateX(5px);
+    }
+
+    .skill-tag {
+        padding: 6px 12px;
+        font-size: 0.95rem;
+    }
 }
 
 /* 项目标题样式 */
 .project-title {
     color: var(--primary-color);
     font-weight: 600;
-    font-size: 1.2rem;
-    margin-bottom: 12px;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-title::before {
-    content: '•';
-    color: var(--primary-color);
-    font-size: 1.5rem;
+    content: '📋';
+    font-size: 1.2em;
+    opacity: 0.8;
 }
 
-/* 调整项目卡片的图标样式 */
-.experience-item.card.project .card-icon {
-    background-color: rgba(var(--primary-color-rgb), 0.1);
+.project-title:hover {
+    transform: translateX(5px);
+    color: var(--primary-color);
+}
+
+/* 全局动画效果 */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 5px rgba(var(--primary-color-rgb), 0.2); }
+    50% { box-shadow: 0 0 25px rgba(var(--primary-color-rgb), 0.3); }
+    100% { box-shadow: 0 0 5px rgba(var(--primary-color-rgb), 0.2); }
+}
+
+/* 背景动画 */
+#three-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.6;
 }
