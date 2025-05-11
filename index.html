@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zheyong Li - 简历 (现代简约)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="three-canvas"></div>
+
+    <div class="container">
+        <header id="hero">
+            <div class="hero-content">
+                <h1 class="name">Zheyong <span class="last-name">Li</span></h1>
+                <p class="tagline">AI 应用开发工程师 / AI 全栈工程师</p>
+                <div class="contact-info">
+                    <span><!-- mail_icon.svg --> <a href="mailto:zheyong@lpit.edu.kg">zheyong@lpit.edu.kg</a></span>
+                    <span><!-- phone_icon.svg --> 123-456-7890</span>
+                    <span>男</span> | <span>25</span> | <span>陕西, 西安</span>
+                </div>
+            </div>
+            <a href="#objective-skills" class="scroll-down-indicator" aria-label="Scroll to content">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 5V19M12 19L7 14M12 19L17 14" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </a>
+        </header>
+
+        <main>
+            <section id="objective-skills" class="resume-section">
+                <h2 class="section-title">求职意向与核心技能</h2>
+                <div class="content-wrapper">
+                    <p class="objective-statement"><strong>求职意向:</strong> AI应用开发工程师 / AI全栈工程师</p>
+                    <div class="skills-grid">
+                        <h3 class="skills-subtitle">核心技能:</h3>
+                        <span class="skill-tag main-skill">目标检测</span>
+                        <span class="skill-tag main-skill">图像处理 (传统/遥感/高光谱)</span>
+                        <span class="skill-tag main-skill">深度学习 (PyTorch)</span>
+                        <span class="skill-tag">前端 (Vue)</span>
+                        <span class="skill-tag">后端 (Django)</span>
+                        <span class="skill-tag">AI模型应用与部署</span>
+                        <span class="skill-tag aux-skill">Git</span>
+                        <span class="skill-tag aux-skill">Docker</span>
+                        <span class="skill-tag aux-skill">LaTeX</span>
+                        <span class="skill-tag aux-skill">大模型使用及辅助开发</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="education" class="resume-section">
+                <h2 class="section-title">教育背景</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><!-- education_icon.svg --></div>
+                        <div class="timeline-content">
+                            <h3>某酒吧舞大学 <span class="timeline-date">2021.09 – 2024.05</span></h3>
+                            <p class="degree">硕士, 电子信息学院, 信息与通信工程 (高光谱图像处理与目标检测方向)</p>
+                            <p class="location">陕西, 西安</p>
+                            <ul class="details-list">
+                                <li><span class="highlight">荣誉:</span> 优秀研究生, 校二等学业奖学金</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><!-- education_icon.svg --></div>
+                        <div class="timeline-content">
+                            <h3>某酒吧舞大学 <span class="timeline-date">2016.09 – 2020.06</span></h3>
+                            <p class="degree">学士, 教育实验学院, 电子信息工程</p>
+                            <p class="location">陕西, 西安</p>
+                            <ul class="details-list">
+                                <li><span class="highlight">经历:</span> 校智能车竞赛三等奖, 国家大创项目负责人 (双目立体匹配), CET-6</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experience" class="resume-section">
+                <h2 class="section-title">工作与项目经历</h2>
+                <div class="experience-list">
+                    <article class="experience-item card">
+                        <header>
+                            <div class="card-icon"><!-- work_icon.svg --></div>
+                            <div>
+                                <h3>某烟酒锁 <span class="job-date">2024.05 – 至今</span></h3>
+                                <p class="job-title">人工智能工程师 / 研发设计岗 <span class="job-location">西安</span></p>
+                            </div>
+                        </header>
+                        <ul class="details-list">
+                            <li><strong>职责概述:</strong> 负责AI算法研究、模型开发与优化、AI应用系统及前端开发、大语言模型技术探索与部署。</li>
+                            <li><strong class="highlight-project">某项目Web前端实现:</strong>
+                                负责基于Vue的项目前端开发，集成Cesium实现GIS场景下目标数据显示与复杂交互；实现指令下发与状态接收 (URL,
+                                WebSocket)、时频图动态展示、文件存储管理、操作日志记录等功能。</li>
+                            <li><strong>多场景目标检测模型研发与集成:</strong>
+                                负责爬取、标注多场景数据集，并针对性地修改yolov8源码（从数据加载到网络结构）以适应项目需求。设计并实现对抗训练策略，融合不同场景特征，提升模型在跨场景下的泛化能力。
+                            </li>
+                            <li><strong>目标检测Qt应用开发:</strong>
+                                开发集AI辅助标注、训练、检测、模块化网络拖拽搭建一体化的Qt桌面应用程序，提升AI模型易用性。已应用于多个场景的项目。</li>
+                            <li><strong>LLM本地部署与应用:</strong> 离线部署大模型，结合知识库、插件供单位日常使用；参与所内AI数字化转型。</li>
+                        </ul>
+                    </article>
+
+                    <article class="experience-item card project">
+                        <header>
+                            <div class="card-icon"><!-- project_icon.svg --></div>
+                            <div>
+                                <h3>高光谱水下目标检测 <a href="https://github.com/lizheyong/TUTDF" target="_blank"
+                                        class="project-link">GitHub <span class="external-link-icon">↗</span></a></h3>
+                                <p class="job-title">科研项目 (硕士期间) <span class="job-date">2021.09 – 2023.06</span></p>
+                                <p class="job-role">主要负责人</p>
+                            </div>
+                        </header>
+                        <ul class="details-list">
+                            <li><strong>项目概要:</strong> 基于无人机高光谱图像，研究并实现深度学习驱动的水体参数反演与水下目标检测。</li>
+                            <li><strong>我的工作:</strong> <strong>(1)</strong>
+                                设计数据采集与反射率校准方案，在多环境采集处理数据。<strong>(2)</strong> 实现水体参数估计网络，提出TUTDF框架，解决真实数据不足问题。</li>
+                            <li><strong>项目成果:</strong> <span class="highlight-achievement">(1) 检测框架性能优于基线方法。 (2)
+                                    构建高光谱水下目标数据集。(3) 发表SCI论文Q1两篇（被引21）。</span></li>
+                        </ul>
+                    </article>
+
+                    <article class="experience-item card project">
+                        <header>
+                            <div class="card-icon"><!-- project_icon.svg --></div>
+                            <div>
+                                <h3>变电站轨道机器人仪表识别 <a
+                                        href="https://github.com/lizheyong/RailBot-Multi-Instrument-Recognition"
+                                        target="_blank" class="project-link">GitHub <span
+                                            class="external-link-icon">↗</span></a></h3>
+                                <p class="job-title">工业合作项目 (硕士期间) <span class="job-date">2022.03 – 2023.03</span></p>
+                                <p class="job-role">主要负责人</p>
+                            </div>
+                        </header>
+                        <ul class="details-list">
+                            <li><strong>项目概要:</strong> 基于轨道机器人图像，实现变电站内多种仪表 (开关、旋钮、指针、数字) 的智能识别系统。</li>
+                            <li><strong>我的工作:</strong> <strong>(1)</strong> 负责大规模仪表数据集的收集与标注。 <strong>(2)</strong>
+                                主导数字仪表识别及指针仪表识别方案设计与实现。</li>
+                            <li><strong>项目成果:</strong> <span class="highlight-achievement">(1)
+                                    指针仪表识别小于1%的误差率，超过了国家电网设定的±5%的标准。 (2) 其他物体的检测和识别准确率超过了国家电网95\%的标准。(3)
+                                    为训练和评估提供了大量公开数据集。</span></li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© <span id="currentYear"></span> Zheyong Li. All rights reserved.</p>
+            <p>Designed with a modern touch.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script> <!-- GSAP 3.11.5 or newer -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
