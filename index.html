@@ -7,10 +7,16 @@
     <title>Zheyong Li - 简历 (现代简约)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        @font-face {
+            font-family: 'MingHui';
+            src: url('https://cdn.jsdelivr.net/gh/chawyehsu/lxgw-wenkai-webfont@latest/dist/LXGWWenKai-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
 </head>
 
 <body>
@@ -20,7 +26,7 @@
         <header id="hero">
             <div class="hero-content">
                 <h1 class="name">Zheyong <span class="last-name">Li</span></h1>
-                <p class="tagline">AI 应用开发工程师 / AI 全栈工程师</p>
+                <p class="tagline">求职意向：AI 应用开发工程师 / AI 全栈工程师</p>
                 <div class="contact-info">
                     <span><!-- mail_icon.svg --> <a href="mailto:zheyong@lpit.edu.kg">zheyong@lpit.edu.kg</a></span>
                     <span><!-- phone_icon.svg --> 123-456-7890</span>
@@ -60,7 +66,9 @@
                 <h2 class="section-title">教育背景</h2>
                 <div class="timeline">
                     <div class="timeline-item">
-                        <div class="timeline-icon"><!-- education_icon.svg --></div>
+                        <div class="timeline-icon">
+                            <img src="nwpu.png" alt="NWPU" class="company-icon">
+                        </div>
                         <div class="timeline-content">
                             <h3>某酒吧舞大学 <span class="timeline-date">2021.09 – 2024.05</span></h3>
                             <p class="degree">硕士, 电子信息学院, 信息与通信工程 (高光谱图像处理与目标检测方向)</p>
@@ -71,7 +79,9 @@
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-icon"><!-- education_icon.svg --></div>
+                        <div class="timeline-icon">
+                            <img src="nwpu.png" alt="NWPU" class="company-icon">
+                        </div>
                         <div class="timeline-content">
                             <h3>某酒吧舞大学 <span class="timeline-date">2016.09 – 2020.06</span></h3>
                             <p class="degree">学士, 教育实验学院, 电子信息工程</p>
@@ -89,29 +99,59 @@
                 <div class="experience-list">
                     <article class="experience-item card">
                         <header>
-                            <div class="card-icon"><!-- work_icon.svg --></div>
+                            <div class="card-icon">
+                                <img src="casc.png" alt="CASC" class="company-icon">
+                            </div>
                             <div>
                                 <h3>某烟酒锁 <span class="job-date">2024.05 – 至今</span></h3>
                                 <p class="job-title">人工智能工程师 / 研发设计岗 <span class="job-location">西安</span></p>
                             </div>
                         </header>
                         <ul class="details-list">
-                            <li><strong>职责概述:</strong> 负责AI算法研究、模型开发与优化、AI应用系统及前端开发、大语言模型技术探索与部署。</li>
-                            <li><strong class="highlight-project">某项目Web前端实现:</strong>
-                                负责基于Vue的项目前端开发，集成Cesium实现GIS场景下目标数据显示与复杂交互；实现指令下发与状态接收 (URL,
-                                WebSocket)、时频图动态展示、文件存储管理、操作日志记录等功能。</li>
-                            <li><strong>多场景目标检测模型研发与集成:</strong>
-                                负责爬取、标注多场景数据集，并针对性地修改yolov8源码（从数据加载到网络结构）以适应项目需求。设计并实现对抗训练策略，融合不同场景特征，提升模型在跨场景下的泛化能力。
+                            <li>
+                                <strong class="role-title">职责概述</strong>
+                                <span class="tech-stack">AI算法研究</span>
+                                <span class="tech-stack">模型开发</span>
+                                <span class="tech-stack">前端开发</span>
+                                <span class="tech-stack">LLM部署</span>
+                                <div class="achievement">负责AI算法研究、模型开发与优化、AI应用系统及前端开发、大语言模型技术探索与部署。</div>
                             </li>
-                            <li><strong>目标检测Qt应用开发:</strong>
-                                开发集AI辅助标注、训练、检测、模块化网络拖拽搭建一体化的Qt桌面应用程序，提升AI模型易用性。已应用于多个场景的项目。</li>
-                            <li><strong>LLM本地部署与应用:</strong> 离线部署大模型，结合知识库、插件供单位日常使用；参与所内AI数字化转型。</li>
+                            <li>
+                                <strong class="project-title">Web前端开发</strong>
+                                <span class="tech-stack">Vue</span>
+                                <span class="tech-stack">Cesium</span>
+                                <span class="tech-stack">WebSocket</span>
+                                <div class="achievement">负责基于Vue的项目前端开发，集成Cesium实现GIS场景下目标数据显示与复杂交互；实现指令下发与状态接收 (URL, WebSocket)、时频图动态展示、文件存储管理、操作日志记录等功能。</div>
+                            </li>
+                            <li>
+                                <strong class="project-title">目标检测模型研发</strong>
+                                <span class="tech-stack">YOLOv8</span>
+                                <span class="tech-stack">对抗训练</span>
+                                <span class="tech-stack">跨场景泛化</span>
+                                <div class="achievement">负责爬取、标注多场景数据集，并针对性地修改yolov8源码（从数据加载到网络结构）以适应项目需求。设计并实现对抗训练策略，融合不同场景特征，提升模型在跨场景下的泛化能力。</div>
+                            </li>
+                            <li>
+                                <strong class="project-title">Qt应用开发</strong>
+                                <span class="tech-stack">Qt</span>
+                                <span class="tech-stack">AI辅助标注</span>
+                                <span class="tech-stack">模块化设计</span>
+                                <div class="achievement">开发集AI辅助标注、训练、检测、模块化网络拖拽搭建一体化的Qt桌面应用程序，提升AI模型易用性。已应用于多个场景的项目。</div>
+                            </li>
+                            <li>
+                                <strong class="project-title">LLM应用部署</strong>
+                                <span class="tech-stack">大模型部署</span>
+                                <span class="tech-stack">知识库</span>
+                                <span class="tech-stack">插件系统</span>
+                                <div class="achievement">离线部署大模型，结合知识库、插件供单位日常使用；参与所内AI数字化转型。</div>
+                            </li>
                         </ul>
                     </article>
 
                     <article class="experience-item card project">
                         <header>
-                            <div class="card-icon"><!-- project_icon.svg --></div>
+                            <div class="card-icon">
+                                <img src="nwpu.png" alt="NWPU" class="company-icon">
+                            </div>
                             <div>
                                 <h3>高光谱水下目标检测 <a href="https://github.com/lizheyong/TUTDF" target="_blank"
                                         class="project-link">GitHub <span class="external-link-icon">↗</span></a></h3>
@@ -121,8 +161,7 @@
                         </header>
                         <ul class="details-list">
                             <li><strong>项目概要:</strong> 基于无人机高光谱图像，研究并实现深度学习驱动的水体参数反演与水下目标检测。</li>
-                            <li><strong>我的工作:</strong> <strong>(1)</strong>
-                                设计数据采集与反射率校准方案，在多环境采集处理数据。<strong>(2)</strong> 实现水体参数估计网络，提出TUTDF框架，解决真实数据不足问题。</li>
+                            <li><strong>我的工作:</strong> <span class="numbered-item">(1)</span><span class="numbered-content">设计数据采集与反射率校准方案，在多环境采集处理数据。</span> <span class="numbered-item">(2)</span><span class="numbered-content">实现水体参数估计网络，提出TUTDF框架，解决真实数据不足问题。</span></li>
                             <li><strong>项目成果:</strong> <span class="highlight-achievement">(1) 检测框架性能优于基线方法。 (2)
                                     构建高光谱水下目标数据集。(3) 发表SCI论文Q1两篇（被引21）。</span></li>
                         </ul>
@@ -130,7 +169,9 @@
 
                     <article class="experience-item card project">
                         <header>
-                            <div class="card-icon"><!-- project_icon.svg --></div>
+                            <div class="card-icon">
+                                <img src="nwpu.png" alt="NWPU" class="company-icon">
+                            </div>
                             <div>
                                 <h3>变电站轨道机器人仪表识别 <a
                                         href="https://github.com/lizheyong/RailBot-Multi-Instrument-Recognition"
@@ -142,8 +183,7 @@
                         </header>
                         <ul class="details-list">
                             <li><strong>项目概要:</strong> 基于轨道机器人图像，实现变电站内多种仪表 (开关、旋钮、指针、数字) 的智能识别系统。</li>
-                            <li><strong>我的工作:</strong> <strong>(1)</strong> 负责大规模仪表数据集的收集与标注。 <strong>(2)</strong>
-                                主导数字仪表识别及指针仪表识别方案设计与实现。</li>
+                            <li><strong>我的工作:</strong> <span class="numbered-item">(1)</span><span class="numbered-content">负责大规模仪表数据集的收集与标注。</span> <span class="numbered-item">(2)</span><span class="numbered-content">主导数字仪表识别及指针仪表识别方案设计与实现。</span></li>
                             <li><strong>项目成果:</strong> <span class="highlight-achievement">(1)
                                     指针仪表识别小于1%的误差率，超过了国家电网设定的±5%的标准。 (2) 其他物体的检测和识别准确率超过了国家电网95\%的标准。(3)
                                     为训练和评估提供了大量公开数据集。</span></li>

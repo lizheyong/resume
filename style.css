@@ -1,17 +1,17 @@
 :root {
-    --primary-color: #007AFF;
+    --primary-color: #4A90E2;
     /* Apple's classic blue */
-    --primary-color-rgb: 0, 122, 255;
-    --secondary-color: #5856D6;
+    --primary-color-rgb: 74, 144, 226;
+    --secondary-color: #2C5282;
     /* A complementary purple/indigo */
-    --secondary-color-rgb: 88, 86, 214;
-    --text-color: #E5E5EA;
-    --text-color-light: #F2F2F7;
-    --text-color-muted: #AEAEB2;
-    --bg-color-dark: #1C1C1E;
-    --card-bg-color: #2C2C2E;
-    --border-color: #3A3A3C;
-    --font-primary: 'Inter', 'Noto Sans SC', sans-serif;
+    --secondary-color-rgb: 44, 82, 130;
+    --text-color: #2C3E50;
+    --text-color-light: #34495E;
+    --text-color-muted: #7F8C8D;
+    --bg-color-dark: #F5F6FA;
+    --card-bg-color: #FFFFFF;
+    --border-color: #E5E9F2;
+    --font-primary: 'MingHui', 'Noto Serif SC', serif;
     --font-code: 'Roboto Mono', monospace;
     --max-width: 1000px;
     --border-radius: 8px;
@@ -92,17 +92,18 @@ p:last-child {
 
 /* Hero Section */
 #hero {
-    min-height: 90vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 20px 0;
+    margin-bottom: 40px;
 }
 
 #hero .name {
-    font-size: clamp(2.8rem, 8vw, 4.5rem);
+    font-size: clamp(3.2rem, 8vw, 5rem);
     font-weight: 700;
     color: var(--text-color-light);
     margin-bottom: 0.15em;
@@ -114,14 +115,14 @@ p:last-child {
 }
 
 #hero .tagline {
-    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
     color: var(--text-color-muted);
     margin-bottom: 1.2em;
     font-weight: 400;
 }
 
 #hero .contact-info {
-    font-size: clamp(0.85rem, 2.5vw, 1rem);
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     color: var(--text-color-muted);
     display: flex;
     flex-wrap: wrap;
@@ -139,19 +140,27 @@ p:last-child {
 
 .scroll-down-indicator {
     display: inline-block;
-    margin-top: 40px;
+    margin-top: 60px;
     color: var(--primary-color);
     animation: bounce-subtle 2.5s infinite;
-    padding: 10px;
+    padding: 15px;
+    background-color: rgba(var(--primary-color-rgb), 0.1);
+    border-radius: 50%;
+    transition: all var(--transition-speed) ease;
+    cursor: pointer;
+}
+
+.scroll-down-indicator:hover {
+    background-color: rgba(var(--primary-color-rgb), 0.2);
+    transform: translateY(-5px);
 }
 
 .scroll-down-indicator svg {
-    width: 28px;
-    height: 28px;
+    width: 40px;
+    height: 40px;
 }
 
 @keyframes bounce-subtle {
-
     0%,
     20%,
     50%,
@@ -161,17 +170,17 @@ p:last-child {
     }
 
     40% {
-        transform: translateY(-8px);
+        transform: translateY(-12px);
     }
 
     60% {
-        transform: translateY(-4px);
+        transform: translateY(-6px);
     }
 }
 
 /* General Section Styling */
 .resume-section {
-    padding: 50px 0;
+    padding: 40px 0;
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -180,10 +189,10 @@ p:last-child {
 }
 
 .section-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 600;
     color: var(--text-color-light);
-    margin-bottom: 35px;
+    margin-bottom: 30px;
     text-align: left;
     position: relative;
     padding-bottom: 10px;
@@ -208,8 +217,8 @@ p:last-child {
 
 /* Objective & Skills Section */
 #objective-skills .objective-statement {
-    font-size: 1.1rem;
-    margin-bottom: 25px;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
     color: var(--text-color);
 }
 
@@ -226,8 +235,8 @@ p:last-child {
 
 .skills-subtitle {
     width: 100%;
-    font-size: 1.1rem;
-    margin-bottom: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
     font-weight: 500;
     color: var(--text-color-muted);
 }
@@ -235,9 +244,9 @@ p:last-child {
 .skill-tag {
     background-color: rgba(var(--primary-color-rgb), 0.1);
     color: var(--primary-color);
-    padding: 6px 14px;
+    padding: 8px 16px;
     border-radius: var(--border-radius);
-    font-size: 0.9rem;
+    font-size: 1rem;
     border: 1px solid transparent;
     transition: all var(--transition-speed) ease;
     cursor: default;
@@ -285,7 +294,7 @@ p:last-child {
 }
 
 .timeline-item {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     position: relative;
 }
 
@@ -302,6 +311,13 @@ p:last-child {
     align-items: center;
     justify-content: center;
     color: var(--primary-color);
+    overflow: hidden;
+}
+
+.timeline-icon .company-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .timeline-icon svg {
@@ -317,9 +333,9 @@ p:last-child {
 }
 
 .timeline-content h3 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: var(--text-color-light);
-    margin-bottom: 5px;
+    margin-bottom: 6px;
     font-weight: 600;
 }
 
@@ -335,8 +351,8 @@ p:last-child {
 
 .timeline-content .degree,
 .timeline-content .location {
-    font-size: 0.95rem;
-    margin-bottom: 5px;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
     color: var(--text-color);
 }
 
@@ -346,23 +362,24 @@ p:last-child {
 }
 
 .timeline-content .details-list li {
-    font-size: 0.9rem;
+    font-size: 1.05rem;
+    margin-bottom: 6px;
 }
 
 /* Experience Section - Card Style */
 .experience-list .card {
     background-color: var(--card-bg-color);
-    padding: 20px;
+    padding: 30px;
     margin-bottom: 25px;
     border-radius: var(--border-radius);
     border: 1px solid var(--border-color);
     box-shadow: var(--shadow-sm);
-    transition: box-shadow var(--transition-speed) ease, transform var(--transition-speed) ease;
+    transition: all var(--transition-speed) ease;
 }
 
 .experience-list .card:hover {
     box-shadow: var(--shadow-md);
-    transform: translateY(-3px);
+    transform: translateY(-2px);
 }
 
 .experience-item header {
@@ -382,18 +399,21 @@ p:last-child {
     align-items: center;
     justify-content: center;
     color: var(--primary-color);
+    overflow: hidden;
 }
 
-.card-icon svg {
-    width: 20px;
-    height: 20px;
+.company-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 .experience-item header h3 {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     color: var(--text-color-light);
     font-weight: 600;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
 }
 
 .experience-item .job-date,
@@ -404,11 +424,11 @@ p:last-child {
 }
 
 .experience-item .job-title {
-    font-size: 1rem;
+    font-size: 1.15rem;
     font-weight: 500;
     color: var(--primary-color);
     display: block;
-    margin-top: 3px;
+    margin-top: 4px;
 }
 
 .experience-item .job-role {
@@ -435,37 +455,107 @@ p:last-child {
 }
 
 .details-list li {
-    margin-bottom: 8px;
-    padding-left: 20px;
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+    padding-left: 24px;
     position: relative;
-    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 .details-list li::before {
-    content: '•';
+    content: '';
     position: absolute;
     left: 0;
-    color: var(--primary-color);
-    font-weight: bold;
-    font-size: 1.2em;
-    line-height: 1;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    background: var(--primary-color);
+    border-radius: 50%;
 }
 
 .details-list li strong {
-    color: var(--text-color);
-    font-weight: 500;
+    color: var(--text-color-light);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.15rem;
+    position: relative;
+}
+
+.details-list li strong::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-color);
+    margin-top: 4px;
+    opacity: 0.5;
+}
+
+/* 项目标题特殊样式 */
+.details-list li strong.project-title {
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+}
+
+.details-list li strong.project-title::before {
+    content: '📋';
+    margin-right: 8px;
+    font-size: 1.1em;
+}
+
+/* 工作职责标题样式 */
+.details-list li strong.role-title {
+    color: var(--text-color-light);
+}
+
+/* 编号样式 */
+.details-list li .numbered-item {
+    display: inline;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.details-list li .numbered-content {
+    display: inline;
+    margin-left: 4px;
+}
+
+.details-list li .highlight-project {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.details-list li .tech-stack {
+    display: inline-block;
+    background: rgba(var(--primary-color-rgb), 0.1);
+    color: var(--primary-color);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    margin: 4px 4px 4px 0;
+}
+
+.details-list li .achievement {
+    display: block;
+    margin-top: 8px;
+    padding-left: 12px;
+    border-left: 2px solid var(--primary-color);
+    color: var(--text-color-muted);
+    font-size: 1rem;
 }
 
 .highlight-project strong {
-    color: var(--secondary-color);
+    color: var(--primary-color);
     font-weight: 500;
 }
 
 .highlight-achievement {
-    background-color: rgba(var(--secondary-color-rgb), 0.1);
+    background-color: rgba(var(--primary-color-rgb), 0.1);
     padding: 2px 6px;
     border-radius: 4px;
-    color: var(--secondary-color);
+    color: var(--primary-color);
     font-weight: 500;
 }
 
@@ -511,4 +601,26 @@ footer p {
     #hero .tagline {
         font-size: 1rem;
     }
+}
+
+/* 项目标题样式 */
+.project-title {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.project-title::before {
+    content: '•';
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+/* 调整项目卡片的图标样式 */
+.experience-item.card.project .card-icon {
+    background-color: rgba(var(--primary-color-rgb), 0.1);
 }
