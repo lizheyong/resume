@@ -47,6 +47,8 @@ body {
     flex-direction: column;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.02em;
+    font-feature-settings: "palt"; /* 使用比例式字母间距，优化中文排版 */
 }
 
 #three-canvas {
@@ -431,8 +433,8 @@ p:last-child {
 }
 
 .timeline-content .details-list li {
-    font-size: 1.05rem;
-    margin-bottom: 6px;
+    font-size: 1.1rem;
+    margin-bottom: 16px;
 }
 
 /* Experience Section - Card Style */
@@ -647,7 +649,7 @@ footer p {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .section-title {
-        font-size: 1.8rem;
+        font-size: 1.75rem !important;
         margin-bottom: 30px;
     }
 
@@ -745,51 +747,98 @@ footer p {
         transform: none;
     }
 
-    /* 改进技能部分在手机上的显示 */
+    /* 重构技能部分在手机上的显示 - 修复行间距问题 */
     .skills-section {
         display: flex;
         flex-direction: column;
     }
     
     .skills-grid {
-        gap: 12px; /* 增加垂直间距 */
-        margin-bottom: 20px; /* 增加底部间距 */
-    }
-    
-    .tag-container {
-        gap: 10px; /* 增加标签间距 */
-        line-height: 1.8; /* 增加行高，防止标签重叠 */
+        gap: 25px; /* 更大的垂直间距 */
+        margin-bottom: 30px; /* 更大的底部间距 */
     }
     
     .skills-subtitle {
-        font-size: 1.1rem;
-        margin-bottom: 8px; /* 增加底部间距 */
-        padding-bottom: 5px;
-        border-bottom: 1px solid var(--border-color);
+        font-size: 1.15rem !important;
+        margin-bottom: 15px; /* 增加底部间距 */
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--primary-color);
         width: 100%;
+        color: var(--primary-color);
+        font-weight: 600;
     }
     
+    /* 技能标签容器 - 进一步优化行间距 */
+    .tag-container {
+        display: flex !important; 
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        align-items: flex-start !important;
+        row-gap: 22px !important; /* 进一步增加行间距 */
+        column-gap: 12px !important;
+        line-height: normal !important;
+        padding: 5px 0 !important; /* 添加上下内边距 */
+        position: relative !important;
+    }
+    
+    /* 创建分隔线增强视觉区分 */
+    .tag-container::after {
+        content: "" !important;
+        display: block !important;
+        position: absolute !important;
+        bottom: -10px !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 1px !important;
+        background: rgba(var(--primary-color-rgb), 0.1) !important;
+        margin-bottom: 5px !important;
+    }
+    
+    /* 设置标签基本样式 */
     .skill-tag {
-        font-size: 0.85rem;
-        padding: 6px 12px;
-        margin-bottom: 4px; /* 添加底部间距，确保不会重叠 */
-        transform: none !important;
-        transition: none;
-        display: inline-block;
-        box-shadow: none !important;
-        line-height: 1.3; /* 确保内部文字不会超出 */
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 8px 16px !important;
+        border-radius: 30px !important; /* 圆形标签 */
+        font-size: 0.95rem !important;
+        line-height: 1.3 !important;
+        margin: 0 !important; /* 移除所有边距 */
+        position: relative !important; /* 确保可定位 */
+        z-index: 2 !important; /* 提高层级 */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05) !important; /* 轻微阴影 */
+        background-color: white !important; /* 纯白背景 */
+        border: 1px solid rgba(var(--primary-color-rgb), 0.2) !important; /* 添加边框 */
     }
     
-    .scroll-down-indicator {
-        bottom: 30px;
-        padding: 10px;
+    /* 主要技能标签强调样式 */
+    .skill-tag.main-skill {
+        background-color: var(--primary-color) !important;
+        color: white !important;
+        font-weight: 600 !important;
+        box-shadow: 0 3px 8px rgba(var(--primary-color-rgb), 0.25) !important; /* 增强阴影 */
+        transform: translateY(-2px) !important; /* 轻微上移，增强层次感 */
+        border: none !important; /* 移除边框 */
     }
     
-    .scroll-down-indicator svg {
-        width: 30px;
-        height: 30px;
+    /* 特别处理标签组 */
+    .skills-grid {
+        margin-bottom: 35px !important; /* 增加组间距 */
     }
     
+    .skills-grid:first-of-type .tag-container {
+        row-gap: 25px !important; /* 第一组标签更大行间距 */
+    }
+    
+    /* 添加响应式全局间距调整 */
+    .resume-section {
+        padding: 25px 0 35px !important; /* 增加节间距 */
+    }
+    
+    #objective-skills {
+        padding-top: 30px !important; /* 增加顶部间距 */
+    }
+
     .experience-item header {
         flex-direction: column;
         align-items: flex-start;
@@ -895,6 +944,30 @@ footer p {
         background-color: var(--primary-color) !important;
         color: white !important;
     }
+
+    /* 确保标签之间的垂直间距足够大 */
+    .tag-container {
+        /* 在新的样式中已处理，此处删除 */
+    }
+    
+    /* 使用更激进的方式确保技能标签可见 */
+    #objective-skills .skill-tag.main-skill,
+    #objective-skills .skill-tag.main-skill:nth-child(1),
+    #objective-skills .skill-tag.main-skill:nth-child(2),
+    #objective-skills .skill-tag.main-skill:nth-child(3) {
+        /* 在新的样式中已处理，此处删除 */
+    }
+
+    /* 恢复滚动指示器样式 */
+    .scroll-down-indicator {
+        bottom: 30px;
+        padding: 10px;
+    }
+    
+    .scroll-down-indicator svg {
+        width: 30px;
+        height: 30px;
+    }
 }
 
 /* 添加触摸设备适配 */
@@ -960,17 +1033,6 @@ footer p {
     0% { box-shadow: 0 0 5px rgba(var(--primary-color-rgb), 0.2); }
     50% { box-shadow: 0 0 25px rgba(var(--primary-color-rgb), 0.3); }
     100% { box-shadow: 0 0 5px rgba(var(--primary-color-rgb), 0.2); }
-}
-
-/* 背景动画 */
-#three-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    opacity: 0.6;
 }
 
 /* Ensure all content is visible regardless of animation state */
