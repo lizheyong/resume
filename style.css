@@ -251,10 +251,16 @@ p:last-child {
     font-weight: 500;
 }
 
+/* 添加技能部分的响应式布局 */
+.skills-section {
+    width: 100%;
+}
+
 .skills-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    margin-bottom: 15px;
 }
 
 .skills-subtitle {
@@ -272,16 +278,20 @@ p:last-child {
     border-radius: 12px;
     font-size: 1rem;
     border: 1px solid transparent;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: none;
     cursor: default;
-    transform-style: preserve-3d;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 8px;
+    margin-right: 8px;
 }
 
 .skill-tag:hover {
-    background-color: var(--primary-color);
-    color: white;
-    transform: translateY(-3px) rotateX(5deg);
-    box-shadow: 0 4px 12px rgba(var(--primary-color-rgb), 0.2);
+    /* 清空悬浮样式 */
+}
+
+.skill-tag:not(:hover) {
+    /* 清空样式 */
 }
 
 .skill-tag.main-skill {
@@ -292,10 +302,11 @@ p:last-child {
 }
 
 .skill-tag.main-skill:hover {
-    background-color: var(--primary-color);
-    color: white;
-    transform: translateY(-3px) rotateX(5deg);
-    box-shadow: 0 6px 16px rgba(var(--primary-color-rgb), 0.3);
+    /* 清空悬浮样式 */
+}
+
+.skill-tag.main-skill:not(:hover) {
+    /* 清空样式 */
 }
 
 .skill-tag.aux-skill {
@@ -304,10 +315,11 @@ p:last-child {
 }
 
 .skill-tag.aux-skill:hover {
-    background-color: var(--secondary-color);
-    color: white;
-    transform: translateY(-3px) rotateX(5deg);
-    box-shadow: 0 4px 12px rgba(var(--secondary-color-rgb), 0.2);
+    /* 清空悬浮样式 */
+}
+
+.skill-tag.aux-skill:not(:hover) {
+    /* 清空样式 */
 }
 
 /* Education Section - Timeline Style */
@@ -662,9 +674,40 @@ footer p {
         transform: none;
     }
 
+    /* 改进技能部分在手机上的显示 */
+    .skills-section {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .skills-grid {
+        gap: 8px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    
+    .skills-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid var(--border-color);
+        width: 100%;
+    }
+    
     .skill-tag {
         font-size: 0.85rem;
         padding: 6px 12px;
+        margin-bottom: 8px;
+        margin-right: 6px;
+        width: auto;
+        transform: none !important;
+        transition: none;
+        display: inline-block;
+        box-shadow: none !important;
+        /* 触摸设备上禁用悬浮效果 */
+        pointer-events: none;
     }
     
     .scroll-down-indicator {
@@ -675,6 +718,44 @@ footer p {
     .scroll-down-indicator svg {
         width: 30px;
         height: 30px;
+    }
+    
+    .experience-item header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .card-icon {
+        margin-bottom: 10px;
+    }
+}
+
+/* 添加触摸设备适配 */
+@media (hover: none) {
+    /* 在触摸设备上禁用悬浮效果 */
+    .skill-tag, 
+    .skill-tag.main-skill, 
+    .skill-tag.aux-skill,
+    .timeline-item,
+    .experience-list .card,
+    .timeline-content,
+    .project-title {
+        transform: none !important;
+        box-shadow: none !important;
+        transition: none !important;
+        /* 触摸设备上应用扁平化设计 */
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+        /* 禁用所有交互效果 */
+        pointer-events: none;
+    }
+    
+    /* 确保内容可见 */
+    .timeline-item, 
+    .experience-item,
+    .skills-grid > *,
+    .content-wrapper > * {
+        opacity: 1 !important;
+        visibility: visible !important;
     }
 }
 

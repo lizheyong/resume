@@ -227,4 +227,75 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("currentYear").textContent =
       new Date().getFullYear();
   }
+
+  // 添加技能标签悬浮效果的手动处理，解决移动设备上的问题
+  const isTouchDevice =
+    "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+  // 完全移除CSS过渡效果，改为完全使用JS控制
+  function applyHoverStyles() {
+    if (isTouchDevice) return; // 触摸设备不应用效果
+
+    // 重置所有技能标签的样式为默认状态
+    document.querySelectorAll(".skill-tag").forEach((tag) => {
+      // 储存原始样式
+      if (!tag.dataset.originalBg) {
+        tag.dataset.originalBg = window.getComputedStyle(tag).backgroundColor;
+        tag.dataset.originalColor = window.getComputedStyle(tag).color;
+        tag.dataset.originalShadow = window.getComputedStyle(tag).boxShadow;
+      }
+
+      // 确保默认状态
+      tag.style.transform = "";
+      tag.style.boxShadow = tag.dataset.originalShadow || "";
+      tag.style.backgroundColor = tag.dataset.originalBg || "";
+      tag.style.color = tag.dataset.originalColor || "";
+
+      // 移除旧事件监听器（如果有）
+      tag.removeEventListener("mouseenter", handleMouseEnter);
+      tag.removeEventListener("mouseleave", handleMouseLeave);
+
+      // 添加新事件监听器
+      tag.addEventListener("mouseenter", handleMouseEnter);
+      tag.addEventListener("mouseleave", handleMouseLeave);
+    });
+  }
+
+  function handleMouseEnter(e) {
+    const tag = e.target;
+    tag.style.transform = "translateY(-3px) rotateX(5deg)";
+
+    if (tag.classList.contains("main-skill")) {
+      // 主要技能已经是蓝色，只需应用阴影效果
+      tag.style.boxShadow = "0 6px 16px rgba(var(--primary-color-rgb), 0.3)";
+    } else if (tag.classList.contains("aux-skill")) {
+      // 辅助技能变为深色
+      tag.style.backgroundColor = "var(--secondary-color)";
+      tag.style.color = "white";
+      tag.style.boxShadow = "0 4px 12px rgba(var(--secondary-color-rgb), 0.2)";
+    } else {
+      // 普通技能变为蓝色
+      tag.style.backgroundColor = "var(--primary-color)";
+      tag.style.color = "white";
+      tag.style.boxShadow = "0 4px 12px rgba(var(--primary-color-rgb), 0.2)";
+    }
+  }
+
+  function handleMouseLeave(e) {
+    const tag = e.target;
+    tag.style.transform = "";
+    tag.style.boxShadow = tag.dataset.originalShadow || "";
+
+    if (!tag.classList.contains("main-skill")) {
+      tag.style.backgroundColor = tag.dataset.originalBg || "";
+      tag.style.color = tag.dataset.originalColor || "";
+    }
+  }
+
+  // 应用悬浮效果
+  applyHoverStyles();
+
+  // 如果DOM发生变化，重新应用悬浮效果
+  const observer = new MutationObserver(applyHoverStyles);
+  observer.observe(document.body, { childList: true, subtree: true });
 });
