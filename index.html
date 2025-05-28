@@ -12,28 +12,48 @@
     <style>
         @font-face {
             font-family: 'MingHui';
-            src: url('https://cdn.jsdelivr.net/gh/chawyehsu/lxgw-wenkai-webfont@latest/dist/LXGWWenKai-Regular.woff2') format('woff2');
+            src: url('fonts/LXGWWenKai-Regular.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
+        }
+        
+        /* 确保向下箭头和背景始终可见 */
+        #three-canvas {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            z-index: -1 !important;
+            opacity: 0.6 !important;
+            pointer-events: none !important;
+        }
+        
+        .scroll-down-indicator {
+            opacity: 1 !important;
+            visibility: visible !important;
+            display: block !important;
         }
     </style>
 </head>
 
 <body>
-    <div id="three-canvas"></div>
+    <!-- 确保背景容器存在且可见 -->
+    <div id="three-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></div>
 
     <div class="container">
         <header id="hero">
             <div class="hero-content">
                 <h1 class="name">Zheyong <span class="last-name">Li</span></h1>
-                <p class="tagline">求职意向：AI 应用开发工程师 / AI 全栈工程师</p>
+                <p class="tagline">求职意向：软件开发工程师 / 人工智能工程师 / 算法工程师</p>
                 <div class="contact-info">
                     <span><!-- mail_icon.svg --> <a href="mailto:zheyong@lpit.edu.kg">zheyong@lpit.edu.kg</a></span>
-                    <span><!-- phone_icon.svg --> 123-456-7890</span>
+                    <span><!-- phone_icon.svg --> 13679256811</span>
                     <span>男</span> | <span>25</span> | <span>陕西, 西安</span>
                 </div>
             </div>
-            <a href="#objective-skills" class="scroll-down-indicator" aria-label="Scroll to content">
+            <!-- 修改向下箭头，确保可见 -->
+            <a href="#objective-skills" class="scroll-down-indicator" aria-label="Scroll to content" style="opacity: 1 !important; visibility: visible !important; display: block !important;">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 5V19M12 19L7 14M12 19L17 14" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round" />
@@ -41,37 +61,66 @@
             </a>
         </header>
 
-        <main>
+        <main style="opacity: 1 !important; visibility: visible !important;">
             <section id="objective-skills" class="resume-section">
                 <h2 class="section-title">求职意向与核心技能</h2>
                 <div class="content-wrapper">
-                    <p class="objective-statement"><strong>求职意向:</strong> AI应用开发工程师 / AI全栈工程师</p>
+                    <p class="objective-statement"><strong>求职意向:</strong> 软件开发工程师 / 人工智能工程师 / 算法工程师</p>
                     <div class="skills-grid">
-                        <h3 class="skills-subtitle">核心技能:</h3>
-                        <span class="skill-tag main-skill">目标检测</span>
-                        <span class="skill-tag main-skill">图像处理 (传统/遥感/高光谱)</span>
-                        <span class="skill-tag main-skill">深度学习 (PyTorch)</span>
-                        <span class="skill-tag">前端 (Vue)</span>
-                        <span class="skill-tag">后端 (Django)</span>
-                        <span class="skill-tag">AI模型应用与部署</span>
+                        <h3 class="skills-subtitle">技术能力:</h3>
+                        <span class="skill-tag main-skill">PyTorch</span>
+                        <span class="skill-tag main-skill">Qt</span>
+                        <span class="skill-tag main-skill">Vue.js</span>
+                        <span class="skill-tag">Django/Flask</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">MATLAB</span>
                         <span class="skill-tag aux-skill">Git</span>
                         <span class="skill-tag aux-skill">Docker</span>
                         <span class="skill-tag aux-skill">LaTeX</span>
-                        <span class="skill-tag aux-skill">大模型使用及辅助开发</span>
+                    </div>
+                    
+                    <div class="skills-grid" style="margin-top: 20px;">
+                        <h3 class="skills-subtitle">专业优势:</h3>
+                        <span class="skill-tag main-skill">AI全流程开发</span>
+                        <span class="skill-tag main-skill">图像处理/目标检测</span>
+                        <span class="skill-tag">Web前后端开发</span>
+                        <span class="skill-tag">Qt桌面应用开发</span>
+                        <span class="skill-tag">学术研究能力</span>
+                        <span class="skill-tag">英语六级</span>
+                    </div>
+                    
+                    <div class="skills-grid" style="margin-top: 20px;">
+                        <h3 class="skills-subtitle">个人特点:</h3>
+                        <span class="skill-tag">学习能力强</span>
+                        <span class="skill-tag">熟练应用大模型</span>
+                        <span class="skill-tag">适应敏捷项目节奏</span>
+                        <span class="skill-tag">团队协作能力强</span>
+                        <span class="skill-tag">技术文档编写能力佳</span>
                     </div>
                 </div>
             </section>
 
             <section id="education" class="resume-section">
-                <h2 class="section-title">教育背景</h2>
+                <h2 class="section-title">教育背景与工作经历</h2>
                 <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <img src="casc.png" alt="CASC" class="company-icon">
+                        </div>
+                        <div class="timeline-content">
+                            <h3>中国航天科技集团 <span class="timeline-date">2024.05 – 至今</span></h3>
+                            <p class="degree">软件研发工程师, 人工智能方向</p>
+                            <p class="location">陕西, 西安</p>
+                        </div>
+                    </div>
                     <div class="timeline-item">
                         <div class="timeline-icon">
                             <img src="nwpu.png" alt="NWPU" class="company-icon">
                         </div>
                         <div class="timeline-content">
-                            <h3>某酒吧舞大学 <span class="timeline-date">2021.09 – 2024.05</span></h3>
-                            <p class="degree">硕士, 电子信息学院, 信息与通信工程 (高光谱图像处理与目标检测方向)</p>
+                            <h3>西北工业大学 <span class="timeline-date">2021.09 – 2024.05</span></h3>
+                            <p class="degree">硕士, 信息与通信工程</p>
                             <p class="location">陕西, 西安</p>
                             <ul class="details-list">
                                 <li><span class="highlight">荣誉:</span> 优秀研究生, 校二等学业奖学金</li>
@@ -83,19 +132,16 @@
                             <img src="nwpu.png" alt="NWPU" class="company-icon">
                         </div>
                         <div class="timeline-content">
-                            <h3>某酒吧舞大学 <span class="timeline-date">2016.09 – 2020.06</span></h3>
-                            <p class="degree">学士, 教育实验学院, 电子信息工程</p>
+                            <h3>西北工业大学 <span class="timeline-date">2016.09 – 2020.06</span></h3>
+                            <p class="degree">学士, 电子信息工程, 教育实验学院</p>
                             <p class="location">陕西, 西安</p>
-                            <ul class="details-list">
-                                <li><span class="highlight">经历:</span> 校智能车竞赛三等奖, 国家大创项目负责人 (双目立体匹配), CET-6</li>
-                            </ul>
                         </div>
                     </div>
                 </div>
             </section>
 
             <section id="experience" class="resume-section">
-                <h2 class="section-title">工作与项目经历</h2>
+                <h2 class="section-title">项目经历</h2>
                 <div class="experience-list">
                     <article class="experience-item card">
                         <header>
@@ -103,46 +149,71 @@
                                 <img src="casc.png" alt="CASC" class="company-icon">
                             </div>
                             <div>
-                                <h3>某烟酒锁 <span class="job-date">2024.05 – 至今</span></h3>
-                                <p class="job-title">人工智能工程师 / 研发设计岗 <span class="job-location">西安</span></p>
+                                <h3>GIS数据交互展示系统 <span class="job-date">2025.03 – 至今</span></h3>
+                                <p class="job-title">中国航天科技集团 <span class="job-location">西安</span></p>
                             </div>
                         </header>
                         <ul class="details-list">
                             <li>
-                                <strong class="role-title">职责概述</strong>
-                                <span class="tech-stack">AI算法研究</span>
-                                <span class="tech-stack">模型开发</span>
-                                <span class="tech-stack">前端开发</span>
-                                <span class="tech-stack">LLM部署</span>
-                                <div class="achievement">负责AI算法研究、模型开发与优化、AI应用系统及前端开发、大语言模型技术探索与部署。</div>
-                            </li>
-                            <li>
-                                <strong class="project-title">Web前端开发</strong>
+                                <strong class="project-title">技术实现</strong>
                                 <span class="tech-stack">Vue</span>
                                 <span class="tech-stack">Cesium</span>
                                 <span class="tech-stack">WebSocket</span>
-                                <div class="achievement">负责基于Vue的项目前端开发，集成Cesium实现GIS场景下目标数据显示与复杂交互；实现指令下发与状态接收 (URL, WebSocket)、时频图动态展示、文件存储管理、操作日志记录等功能。</div>
+                                <div class="achievement">开发实时数据 GIS 交互展示，支持 URL 和 WebSocket 数据收发。独立负责需求分析、系统设计、API 接口定义与技术文档撰写。</div>
                             </li>
                             <li>
-                                <strong class="project-title">目标检测模型研发</strong>
-                                <span class="tech-stack">YOLOv8</span>
-                                <span class="tech-stack">对抗训练</span>
-                                <span class="tech-stack">跨场景泛化</span>
-                                <div class="achievement">负责爬取、标注多场景数据集，并针对性地修改yolov8源码（从数据加载到网络结构）以适应项目需求。设计并实现对抗训练策略，融合不同场景特征，提升模型在跨场景下的泛化能力。</div>
+                                <strong class="project-title">项目价值</strong>
+                                <div class="achievement">系统成功交付并作为部门前端开发标准模板，显著提升了用户操作体验和系统测试效率。</div>
                             </li>
+                        </ul>
+                    </article>
+
+                    <article class="experience-item card">
+                        <header>
+                            <div class="card-icon">
+                                <img src="casc.png" alt="CASC" class="company-icon">
+                            </div>
+                            <div>
+                                <h3>AI标注训练检测一体化平台 <span class="job-date">2024.10 – 2025.01</span></h3>
+                                <p class="job-title">中国航天科技集团 <span class="job-location">西安</span></p>
+                            </div>
+                        </header>
+                        <ul class="details-list">
                             <li>
-                                <strong class="project-title">Qt应用开发</strong>
+                                <strong class="project-title">技术实现</strong>
                                 <span class="tech-stack">Qt</span>
                                 <span class="tech-stack">AI辅助标注</span>
                                 <span class="tech-stack">模块化设计</span>
-                                <div class="achievement">开发集AI辅助标注、训练、检测、模块化网络拖拽搭建一体化的Qt桌面应用程序，提升AI模型易用性。已应用于多个场景的项目。</div>
+                                <div class="achievement">基于Qt框架开发AI模型标注训练预测一体化平台，涵盖AI辅助数据标注、模型配置、训练监控、模块化拖拽方式搭建神经网络，覆盖完整流程。负责架构设计、UI界面开发、信号槽机制实现及跨平台适配。</div>
                             </li>
                             <li>
-                                <strong class="project-title">LLM应用部署</strong>
-                                <span class="tech-stack">大模型部署</span>
-                                <span class="tech-stack">知识库</span>
-                                <span class="tech-stack">插件系统</span>
-                                <div class="achievement">离线部署大模型，结合知识库、插件供单位日常使用；参与所内AI数字化转型。</div>
+                                <strong class="project-title">项目价值</strong>
+                                <div class="achievement">工具已在多个实际项目中成功应用。相比原有开发流程，模型标注、训练效率提升50%。</div>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="experience-item card">
+                        <header>
+                            <div class="card-icon">
+                                <img src="casc.png" alt="CASC" class="company-icon">
+                            </div>
+                            <div>
+                                <h3>跨场景目标检测算法优化 <span class="job-date">2024.05 – 2024.07</span></h3>
+                                <p class="job-title">中国航天科技集团 <span class="job-location">西安</span></p>
+                            </div>
+                        </header>
+                        <ul class="details-list">
+                            <li>
+                                <strong class="project-title">技术实现</strong>
+                                <span class="tech-stack">YOLOv8</span>
+                                <span class="tech-stack">对抗训练</span>
+                                <span class="tech-stack">跨场景泛化</span>
+                                <div class="achievement">负责多场景数据集爬取和标注工作，针对性优化YOLOv8源码（从数据加载到网络结构）。采用对抗训练策略融合不同场景特征，显著提升模型跨场景泛化能力。</div>
+                            </li>
+                            <li>
+                                <strong class="project-title">项目价值</strong>
+                                <div class="achievement">构建了高质量的领域数据集，跨场景目标检测准确率达到指标，为后续项目提供了重要技术支撑。</div>
                             </li>
                         </ul>
                     </article>
@@ -153,17 +224,19 @@
                                 <img src="nwpu.png" alt="NWPU" class="company-icon">
                             </div>
                             <div>
-                                <h3>高光谱水下目标检测 <a href="https://github.com/lizheyong/TUTDF" target="_blank"
-                                        class="project-link">GitHub <span class="external-link-icon">↗</span></a></h3>
-                                <p class="job-title">科研项目 (硕士期间) <span class="job-date">2021.09 – 2023.06</span></p>
-                                <p class="job-role">主要负责人</p>
+                                <h3>变电站轨道机器人仪表识别系统 <span class="job-date">2022.03 – 2023.03</span></h3>
+                                <p class="job-title">西北工业大学</p>
                             </div>
                         </header>
                         <ul class="details-list">
-                            <li><strong>项目概要:</strong> 基于无人机高光谱图像，研究并实现深度学习驱动的水体参数反演与水下目标检测。</li>
-                            <li><strong>我的工作:</strong> <span class="numbered-item">(1)</span><span class="numbered-content">设计数据采集与反射率校准方案，在多环境采集处理数据。</span> <span class="numbered-item">(2)</span><span class="numbered-content">实现水体参数估计网络，提出TUTDF框架，解决真实数据不足问题。</span></li>
-                            <li><strong>项目成果:</strong> <span class="highlight-achievement">(1) 检测框架性能优于基线方法。 (2)
-                                    构建高光谱水下目标数据集。(3) 发表SCI论文Q1两篇（被引21）。</span></li>
+                            <li>
+                                <strong class="project-title">技术实现</strong>
+                                <div class="achievement">开发数字仪表和指针式仪表智能识别系统，负责大规模数据集收集和精准标注。解决实际应用中光线变化、遮挡干扰和新数据适应性等关键技术难题。</div>
+                            </li>
+                            <li>
+                                <strong class="project-title">项目价值</strong>
+                                <div class="achievement">指针式仪表识别误差率控制在1%以内，远超设定的±5%标准；其他目标检测识别准确率达到95%。构建的数据集已开源供学术研究使用。</div>
+                            </li>
                         </ul>
                     </article>
 
@@ -173,22 +246,45 @@
                                 <img src="nwpu.png" alt="NWPU" class="company-icon">
                             </div>
                             <div>
-                                <h3>变电站轨道机器人仪表识别 <a
-                                        href="https://github.com/lizheyong/RailBot-Multi-Instrument-Recognition"
-                                        target="_blank" class="project-link">GitHub <span
-                                            class="external-link-icon">↗</span></a></h3>
-                                <p class="job-title">工业合作项目 (硕士期间) <span class="job-date">2022.03 – 2023.03</span></p>
-                                <p class="job-role">主要负责人</p>
+                                <h3>高光谱图像水下目标检测研究 <span class="job-date">2021.09 – 2023.06</span></h3>
+                                <p class="job-title">西北工业大学</p>
                             </div>
                         </header>
                         <ul class="details-list">
-                            <li><strong>项目概要:</strong> 基于轨道机器人图像，实现变电站内多种仪表 (开关、旋钮、指针、数字) 的智能识别系统。</li>
-                            <li><strong>我的工作:</strong> <span class="numbered-item">(1)</span><span class="numbered-content">负责大规模仪表数据集的收集与标注。</span> <span class="numbered-item">(2)</span><span class="numbered-content">主导数字仪表识别及指针仪表识别方案设计与实现。</span></li>
-                            <li><strong>项目成果:</strong> <span class="highlight-achievement">(1)
-                                    指针仪表识别小于1%的误差率，超过了国家电网设定的±5%的标准。 (2) 其他物体的检测和识别准确率超过了国家电网95\%的标准。(3)
-                                    为训练和评估提供了大量公开数据集。</span></li>
+                            <li>
+                                <strong class="project-title">技术实现</strong>
+                                <div class="achievement">设计数据采集方案和标定流程，进行水箱/水池/海试采集数据、反射率校正、数据集构建、模型训练。实现水体参数估计网络，提出基于迁移学习的水下目标检测框架，通过合成数据增强提升模型实用性。</div>
+                            </li>
+                            <li>
+                                <strong class="project-title">项目价值</strong>
+                                <div class="achievement">所提框架在水下目标检测、背景杂波抑制和检测速度方面明显优于传统检测方法。相关成果发表于IEEE TGRS、Remote Sensing等顶级期刊，算法在复杂水下环境中检测精度提升25%。构建的数据集已被广泛引用（被引 22 次），为相关研究提供关键支撑。</div>
+                            </li>
                         </ul>
                     </article>
+                </div>
+            </section>
+            
+            <section id="other-skills" class="resume-section">
+                <h2 class="section-title">其他项目 & 专业技能</h2>
+                <div class="content-wrapper">
+                    <ul class="details-list">
+                        <li>
+                            <strong>获奖项目</strong>
+                            <div class="achievement">第九届"互联网+"大学生创新创业大赛校赛铜奖、西北工业大学智能车竞赛三等奖（负责人）、国家级大创项目合格结题（负责人): 面向服务型机器人的双目立体匹配技术研究</div>
+                        </li>
+                        <li>
+                            <strong>AI技术应用</strong>
+                            <div class="achievement">完成多个大模型的本地部署，搭建企业级RAG知识库系统，显著提升团队研发效率和知识管理水平。</div>
+                        </li>
+                        <li>
+                            <strong>开发流程优化</strong>
+                            <div class="achievement">在团队内推广Git/GitLab版本控制，制定代码规范和协作流程，组织技术培训分享，有效提升团队整体开发效率。</div>
+                        </li>
+                        <li>
+                            <strong>技术沟通能力</strong>
+                            <div class="achievement">具备优秀的跨职能协作能力，主动与用户沟通需求，高效对接不同技术栈团队成员；擅长撰写清晰的技术文档和项目报告。</div>
+                        </li>
+                    </ul>
                 </div>
             </section>
         </main>
@@ -200,8 +296,37 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- 备用Three.js库 -->
+    <script>
+        // 检查Three.js是否加载
+        if (typeof THREE === 'undefined') {
+            console.log('CDN加载失败，尝试使用备用Three.js库');
+            var script = document.createElement('script');
+            script.src = 'https://threejs.org/build/three.min.js';
+            script.onload = function() {
+                console.log('备用Three.js库加载成功');
+                // 手动触发DOMContentLoaded以重新初始化
+                window.dispatchEvent(new Event('load'));
+            };
+            document.head.appendChild(script);
+        }
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script> <!-- GSAP 3.11.5 or newer -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <script>
+        // 确保DOM元素可见的备用脚本
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.querySelectorAll('.resume-section, .timeline-item, .experience-item, .skills-grid > *, .content-wrapper > *, .scroll-down-indicator').forEach(function(el) {
+                    el.style.opacity = '1';
+                    el.style.visibility = 'visible';
+                    if (el.classList.contains('scroll-down-indicator')) {
+                        el.style.display = 'block';
+                    }
+                });
+            }, 500);
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 

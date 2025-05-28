@@ -104,6 +104,7 @@ p:last-child {
     text-align: center;
     padding: 20px 0;
     margin-bottom: 40px;
+    position: relative;
 }
 
 #hero .name {
@@ -155,11 +156,18 @@ p:last-child {
     border-radius: 50%;
     transition: all var(--transition-speed) ease;
     cursor: pointer;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 .scroll-down-indicator:hover {
     background-color: rgba(var(--primary-color-rgb), 0.2);
-    transform: translateY(-5px);
+    transform: translateX(-50%) translateY(-5px);
 }
 
 .scroll-down-indicator svg {
@@ -189,6 +197,9 @@ p:last-child {
 .resume-section {
     padding: 40px 0;
     border-bottom: 1px solid var(--border-color);
+    margin-bottom: 20px;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 .resume-section:last-of-type {
@@ -615,45 +626,55 @@ footer p {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .section-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
         margin-bottom: 30px;
     }
 
     .timeline {
-        padding-left: 10px;
+        padding-left: 25px;
     }
 
     .timeline-icon {
-        left: -25px;
-        width: 26px;
-        height: 26px;
+        width: 40px;
+        height: 40px;
+        left: -20px;
     }
 
     .timeline-icon svg {
-        width: 14px;
-        height: 14px;
+        width: 20px;
+        height: 20px;
     }
 
     #hero .name {
-        font-size: 2.2rem;
+        font-size: clamp(2.5rem, 6vw, 4rem);
     }
 
     #hero .tagline {
-        font-size: 1rem;
+        font-size: clamp(1rem, 2.5vw, 1.5rem);
     }
 
     .experience-list .card {
-        padding: 25px;
-        margin-bottom: 30px;
+        padding: 20px;
+        margin-bottom: 20px;
     }
     
     .timeline-item:hover {
-        transform: translateX(5px);
+        transform: none;
     }
 
     .skill-tag {
+        font-size: 0.85rem;
         padding: 6px 12px;
-        font-size: 0.95rem;
+    }
+    
+    .scroll-down-indicator {
+        bottom: 30px;
+        padding: 10px;
+    }
+    
+    .scroll-down-indicator svg {
+        width: 30px;
+        height: 30px;
     }
 }
 
@@ -702,4 +723,13 @@ footer p {
     height: 100%;
     z-index: -1;
     opacity: 0.6;
+}
+
+/* Ensure all content is visible regardless of animation state */
+.timeline-item, 
+.experience-item,
+.skills-grid > *,
+.content-wrapper > * {
+    opacity: 1 !important;
+    visibility: visible !important;
 }
