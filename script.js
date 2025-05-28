@@ -298,4 +298,29 @@ document.addEventListener("DOMContentLoaded", () => {
   // 如果DOM发生变化，重新应用悬浮效果
   const observer = new MutationObserver(applyHoverStyles);
   observer.observe(document.body, { childList: true, subtree: true });
+
+  // 确保手机端卡片完全可见
+  function ensureCardsVisibility() {
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      document.querySelectorAll(".experience-list .card").forEach((card) => {
+        card.style.backgroundColor = "#FFFFFF";
+        card.style.opacity = "1";
+        card.style.visibility = "visible";
+        card.style.backdropFilter = "none";
+        card.style.webkitBackdropFilter = "none";
+        card.style.boxShadow = "0 2px 8px rgba(0, 0, 0, 0.1)";
+        card.style.transform = "none";
+      });
+    }
+  }
+
+  // 页面加载和调整大小时确保卡片可见
+  window.addEventListener("load", ensureCardsVisibility);
+  window.addEventListener("resize", ensureCardsVisibility);
+
+  // 添加延迟检查确保完全加载后应用
+  setTimeout(ensureCardsVisibility, 500);
+  setTimeout(ensureCardsVisibility, 1000);
+  setTimeout(ensureCardsVisibility, 2000);
 });

@@ -258,15 +258,21 @@ p:last-child {
 
 .skills-grid {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    flex-direction: column; /* 改为纵向布局 */
+    gap: 5px; /* 减小间距 */
     margin-bottom: 15px;
+}
+
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
 .skills-subtitle {
     width: 100%;
     font-size: 1.2rem;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     font-weight: 500;
     color: var(--text-color-muted);
 }
@@ -278,12 +284,13 @@ p:last-child {
     border-radius: 12px;
     font-size: 1rem;
     border: 1px solid transparent;
+    /* 移除CSS过渡效果，完全由JS控制 */
     transition: none;
     cursor: default;
     position: relative;
     display: inline-block;
-    margin-bottom: 8px;
-    margin-right: 8px;
+    margin-bottom: 0; /* 移除底部边距，由容器控制 */
+    margin-right: 0; /* 移除右侧边距，由容器控制 */
 }
 
 .skill-tag:hover {
@@ -428,20 +435,20 @@ p:last-child {
 
 /* Experience Section - Card Style */
 .experience-list .card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
-    transform-style: preserve-3d;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: #FFFFFF; /* 完全不透明的白色 */
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: var(--border-radius);
     margin-bottom: 40px;
     padding: 35px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1;
 }
 
 .experience-list .card:hover {
-    transform: translateY(-8px) rotateX(2deg);
-    box-shadow: var(--glass-shadow), 0 0 30px rgba(var(--primary-color-rgb), 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .experience-item header {
@@ -665,9 +672,19 @@ footer p {
         font-size: clamp(1rem, 2.5vw, 1.5rem);
     }
 
+    /* 修复手机端卡片显示问题 */
     .experience-list .card {
+        background-color: #FFFFFF !important; /* 强制不透明 */
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
         padding: 20px;
         margin-bottom: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+        border: 1px solid rgba(0, 0, 0, 0.1) !important;
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        z-index: 2; /* 提高层级 */
     }
     
     .timeline-item:hover {
@@ -681,17 +698,18 @@ footer p {
     }
     
     .skills-grid {
-        gap: 8px;
-        margin-bottom: 20px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
+        gap: 4px; /* 更小的间距 */
+        margin-bottom: 15px;
+    }
+    
+    .tag-container {
+        gap: 6px;
     }
     
     .skills-subtitle {
         font-size: 1.1rem;
-        margin-bottom: 10px;
-        padding-bottom: 5px;
+        margin-bottom: 5px; /* 更小的间距 */
+        padding-bottom: 3px;
         border-bottom: 1px solid var(--border-color);
         width: 100%;
     }
@@ -699,15 +717,11 @@ footer p {
     .skill-tag {
         font-size: 0.85rem;
         padding: 6px 12px;
-        margin-bottom: 8px;
-        margin-right: 6px;
-        width: auto;
+        /* 移除边距，由容器控制 */
         transform: none !important;
         transition: none;
         display: inline-block;
         box-shadow: none !important;
-        /* 触摸设备上禁用悬浮效果 */
-        pointer-events: none;
     }
     
     .scroll-down-indicator {
@@ -723,10 +737,39 @@ footer p {
     .experience-item header {
         flex-direction: column;
         align-items: flex-start;
+        margin-bottom: 15px;
     }
     
     .card-icon {
         margin-bottom: 10px;
+        background-color: rgba(var(--primary-color-rgb), 0.1);
+    }
+    
+    .experience-item header h3 {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+    }
+    
+    .experience-item .job-title {
+        font-size: 1rem;
+    }
+    
+    .details-list li {
+        padding-left: 15px;
+    }
+    
+    .details-list li::before {
+        top: 12px;
+        width: 5px;
+        height: 5px;
+    }
+    
+    .details-list li strong {
+        font-size: 1.05rem;
+    }
+    
+    .details-list li .achievement {
+        font-size: 0.95rem;
     }
 }
 
